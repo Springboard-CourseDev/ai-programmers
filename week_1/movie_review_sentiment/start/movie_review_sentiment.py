@@ -38,7 +38,7 @@ def analyze_sentiment(review):
     # thought: [analysis]
     # sentiment: [positive/negative]
     result = {
-        "thought": output[0].replace("thought:").strip(),  # TODO: Extract thought
+        "thought": output[0].replace("thought:", "").strip(),  # TODO: Extract thought
         "sentiment": output[1]  # TODO: Extract sentiment
     }
     
