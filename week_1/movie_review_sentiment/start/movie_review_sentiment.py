@@ -15,7 +15,13 @@ def analyze_sentiment(review):
     #       sentiment: [positive/negative]
     # 3. Includes the review text
     prompt = """
-    # TODO: Add your prompt here
+    Tell me if below movie review is postive or negative
+
+    Movie Review={review}
+
+    output should be in below format
+    thought: analyse the review to determine if movie is positive or negative
+    sentiment: postive or negative
     """
 
     response = client.chat.completions.create(
@@ -24,14 +30,16 @@ def analyze_sentiment(review):
         temperature=0.7
     )
 
+    #print(f"{response}")
     content = response.choices[0].message.content
+    output = content.strip().split("sentiment:")
     # TODO: Parse the response to extract thought and sentiment
     # The response should be in the format:
     # thought: [analysis]
     # sentiment: [positive/negative]
     result = {
-        "thought": "",  # TODO: Extract thought
-        "sentiment": ""  # TODO: Extract sentiment
+        "thought": output[0].replace("thought:").strip(),  # TODO: Extract thought
+        "sentiment": output[1]  # TODO: Extract sentiment
     }
     
     return result
