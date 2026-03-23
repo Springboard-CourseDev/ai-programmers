@@ -14,7 +14,7 @@ def analyze_sentiment(review):
     #       thought: [analysis]
     #       sentiment: [positive/negative]
     # 3. Includes the review text
-    prompt = """
+    prompt = f"""
     Tell me if below movie review is postive or negative
 
     Movie Review={review}
