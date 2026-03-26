@@ -9,6 +9,11 @@ import os
 # - unit
 # - name
 
+class Ingredients(BaseModel):
+    amount: int = Field(description="amount of the ingredient")
+    unit: str = Field(description="unit of the ingredient")
+    name: str = Field(descriptipn="name of the ingredient")
+
 class Recipe(BaseModel):
     """
     Use this model when working with complete cooking recipes.
