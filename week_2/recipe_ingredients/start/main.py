@@ -12,7 +12,7 @@ import os
 class Ingredient(BaseModel):
     amount: int = Field(description="amount of the ingredient")
     unit: str = Field(description="unit of the ingredient")
-    name: str = Field(descriptipn="name of the ingredient")
+    name: str = Field(description="name of the ingredient")
 
 class Recipe(BaseModel):
     """
@@ -27,7 +27,7 @@ def get_recipe_from_text(recipe_text: str) -> Recipe:
     Convert recipe text into a structured Recipe object using OpenAI.
     """
     client = OpenAI()
-
+    
     # Make the API call
     response = client.responses.parse(
         model="gpt-4o-mini-2024-07-18",
